@@ -13,7 +13,7 @@ book.add_title title,
   lang: 'zh',
   file_as: 'taroxd'
 
-book.add_creator 'taroxd'
+book.add_creator author
 translators.each do |d|
   book.add_contributor d
 end
