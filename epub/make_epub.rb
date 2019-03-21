@@ -54,10 +54,9 @@ end
 book.ordered do
   book.add_item('text/title.xhtml').add_content(StringIO.new(<<~TITLE)).toc_text(title)
     <?xml version="1.0" encoding="utf-8"?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+    <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
 
@@ -78,10 +77,9 @@ book.ordered do
 
   book.add_item('text/message.xhtml').add_content(StringIO.new(<<~MESSAGE))
     <?xml version="1.0" encoding="utf-8"?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+    <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
 
@@ -107,10 +105,9 @@ book.ordered do
 
   book.add_item('text/introduction.xhtml').add_content(StringIO.new(<<~INTRODUCTION))
     <?xml version="1.0" encoding="utf-8"?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+    <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
 
@@ -120,20 +117,18 @@ book.ordered do
       <div>
 
     <h1 class="color1">简介</h1>
-    <p>#{abstract}</p>
+    #{abstract}
 
       </div>
     </body>
     </html>
   INTRODUCTION
 
-
   book.add_item('Text/contents.xhtml').add_content(StringIO.new(<<~CONTENTS))
     <?xml version="1.0" encoding="utf-8"?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+    <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
 

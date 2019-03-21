@@ -23,7 +23,7 @@ def line_to_html(line, wrap: nil, attrib: nil)
     end
     remove_format.call rb
     remove_format.call rt
-    "<ruby><rb>#{rb}</rb><rt>#{rt}</rt></ruby>"
+    "<ruby>#{rb}<rt>#{rt}</rt></ruby>"
   end
   return '<ul>' if line.include?('\\begin{itemize}')
   return '</ul>' if line.include?('\\end{itemize}')
@@ -73,10 +73,9 @@ def parse_chapter(tex_str, numbering)
       title = line_to_html "#{number_str} #{chapter_title_plain}"
       html_str << <<~TEMPLATE
         <?xml version="1.0" encoding="utf-8"?>
-        <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
-          "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+        <!DOCTYPE html>
 
-        <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+        <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
         <head>
           <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
           <title>#{title}</title>
