@@ -101,7 +101,7 @@ end
 def make_footnote(contents, id)
   return "" if contents.empty?
   result = +<<~OL
-    <ol class="duokan-footnote-content" id="#{id}">'
+    <ol class="duokan-footnote-content" id="#{id}">
   OL
   contents.each do |c|
     result << <<~LI
