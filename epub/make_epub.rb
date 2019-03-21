@@ -39,13 +39,13 @@ chapter_lists.each do |chap_id|
   chap_file = File.read("../#{chap_id}.tex", encoding: 'utf-8')
   id_int = chap_id.to_i
   id_prefix = id_int < 10 ? "0#{id_int}" : id_int.to_s
-  content, title = parse_chapter(chap_file, id_int)
+  content, chap_title = parse_chapter(chap_file, id_int)
   item_href = "Text/#{chap_id}.xhtml"
-  toc_text = "#{id_prefix} #{title}"
+  toc_text = "#{id_prefix} #{chap_title}"
   contents_table << <<~TR
     <tr>
       <td class="tdtop w40 pbt09"><a class="nodeco colorg" href="../#{item_href}">#{id_prefix}</a></td>
-      <td class="left pbt09"><a class="nodeco colorg" href="../#{item_href}">#{title}</a></td>
+      <td class="left pbt09"><a class="nodeco colorg" href="../#{item_href}">#{chap_title}</a></td>
     </tr>
   TR
   chapter_contents.push([item_href, content, toc_text])
@@ -154,8 +154,8 @@ book.ordered do
      </html>
   CONTENTS
 
-  chapter_contents.each do |item_href, content, title|
-    book.add_item(item_href).add_content(StringIO.new(content)).toc_text(title)
+  chapter_contents.each do |item_href, content, chap_title|
+    book.add_item(item_href).add_content(StringIO.new(content)).toc_text(chap_title)
   end
 end
 
