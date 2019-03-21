@@ -96,7 +96,7 @@ end
 def make_footnote_icon
   footnote_id = "#{Time.now.usec}-#{rand(0x100000000).to_s(36)}"
   [<<~ICON, footnote_id]
-    <a class="duokan-footnote" href="##{footnote_id}"><img class="w10" src="../Images/zhu.png"/></a>
+    <a class="duokan-footnote" href="##{footnote_id}"><img class="w10" alt="note" src="../Images/zhu.png"/></a>
   ICON
 end
 
