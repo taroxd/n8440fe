@@ -1,0 +1,157 @@
+/*说明：
+本样式表各部分样式均有注释说明其用途。如非必要切勿擅自改动。
+制作者自行编写的样式应当写在对应页面样式的下方。
+如有疑问，请在工作群中提出。
+                       Star_of_Africa  2018.2.13*/
+
+/*基础样式*/
+body{padding: 0%;margin-top: 0%;margin-bottom: 0%;margin-left: 1%;margin-right: 1%;line-height:1.2;text-align: justify;}
+p {text-indent:2em;display:block;line-height:1.3;margin-top:0.6em;margin-bottom:0.6em;}
+div {margin:0px;padding:0px;line-height:1.2;text-align: justify;}
+li{ clear:both; display:block}
+td{padding:3px 0px}
+
+
+/*封面样式*/
+.cover {margin: 0px;padding: 0px;text-indent: 0;text-align: center !important;}
+
+
+/*制作信息页样式*/
+.makertitle{font-size: 1.3em;text-indent: 0em;font-weight: bold;margin-top: 0.5em;margin-bottom: 0.5em;}
+.cutline{text-indent: 0em;line-height: 0;margin-top: 0.3em;margin-bottom: 0.3em;}
+.makerifm{text-indent: 0em;line-height: 1.2;margin-top: 0.2em;margin-bottom: 0.2em;}
+
+
+/*Logo页样式*/
+.logoarea{text-indent: 0em;text-align:center !important;margin-top: 20%;margin-bottom: 0%;}
+.logoimage{width:100%;}
+
+
+/*目录页样式*/
+/*“目录”标题颜色*/
+.colorco{color:#000000}
+/*目录页超链接样式*/
+.nodeco{text-decoration:none}
+/*目录页超链接颜色*/
+.colorg{color:#000000}
+
+
+/*正文样式*/
+/*正文章节标题样式*/
+h1 {font-size: 1.5em;line-height: 1.2;margin-top: 1em;margin-bottom: 1.2em;font-weight: bold;text-align: center !important;}
+/*注释代码样式*/
+.po{font-size:0.9em;text-indent:-0.8em;padding: 0em 0.1em 0.1em 1em;color:#960014}
+/*正文插图样式*/
+.kuan{duokan-bleed:leftright}
+.zhai{duokan-bleed:lefttopright}
+/*上标样式*/
+ruby{ruby-align:center}
+rt{font-size:0.7em;}
+/*下标黑点着重号*/
+.zzh {text-emphasis-style:dot;text-emphasis-position:under;-webkit-text-emphasis-style:dot;-webkit-text-emphasis-position:under;-webkit-text-emphasis-style:dot;-epub-text-emphasis-style:dot;}
+
+
+/*字体样式控制*/
+/*字体加粗*/
+.bold{font-weight:bold}
+/*字体高度*/
+.font03{font-size: 0.3em}
+.font04{font-size: 0.4em}
+.font05{font-size: 0.5em}
+.font06{font-size: 0.6em}
+.font07{font-size: 0.7em}
+.font075{font-size: 0.75em}
+.font08{font-size: 0.8em}
+.font085{font-size: 0.85em}
+.font09{font-size: 0.9em}
+.font10{font-size: 1.0em}
+.font11{font-size: 1.1em}
+.font115{font-size: 1.15em}
+.font12{font-size: 1.2em}
+.font13{font-size: 1.3em}
+.font14{font-size: 1.4em}
+.font15{font-size: 1.5em}
+.font16{font-size: 1.6em}
+.font17{font-size: 1.7em}
+.font18{font-size: 1.8em}
+.font19{font-size: 1.9em}
+.font20{font-size: 2em}
+.font25{font-size: 2.5em}
+.font30{font-size: 3em}
+.font40{font-size: 4em}
+/*首行缩进值为0*/
+.in0{text-indent:0em}
+/*文本居中*/
+.center{text-align:center !important;text-indent:0em;}
+/*文本居左*/
+.left{text-align:left !important;duokan-text-indent:0em;text-indent:0em;}
+/*文本居右*/
+.right{text-align:right !important;text-indent:0em;}
+/*斜体的字体样式*/
+.italic{font-style:italic}
+/*倾斜的字体样式*/
+.oblique{font-style:oblique}
+
+
+/*字体颜色控制*/
+.colorc1{color:#000000}/*书名颜色，默认黑色。*/
+.colorc2{color:#000000}/*卷数颜色，默认黑色。*/
+.color1{color:#000000}/*印象色，用于制作者人名、章节标题等处，默认黑色。*/
+/*补充颜色写在下面，并注明用处*/
+
+
+/*元素控制样式*/
+/*td元素顶端对齐*/
+.tdtop{vertical-align:top}
+/*td元素底端对齐*/
+.tdbottom{vertical-align:bottom}
+/*td元素垂直居中对齐*/
+.tdmiddle{vertical-align:middle}
+/*td元素水平居中*/
+.tdcenter{margin-left:auto; margin-right:auto;}
+/*元素宽度*/
+.w05{width:0.5em}
+.w07{width:0.7em}
+.w09{width:0.9em}
+.w10{width:1em}
+.w11{width:1.1em}
+.w26{width:2.6em}
+.w33{width:3.3em}
+.w37{width:3.7em}
+.w40{width:4em}
+.w44{width:4.4em}
+.w55{width:5.5em}
+.w70{width:70%}
+.w100{width:100%}
+/*元素顶部外边距*/
+.mtb13{margin-top:-1.3em;}
+.mtb09{margin-top:-0.9em;}
+.mtb05{margin-top:-0.5em;}
+.mtb03{margin-top:-0.3em;}
+.mt03{margin-top:0.3em;}
+.mt05{margin-top:0.5em;}
+.mt09{margin-top:0.9em;}
+.mt13{margin-top:1.3em;}
+/*元素上下外边距*/
+.mbt05{margin-top:0.5em; margin-bottom:0.5em;}
+.mbt09{margin-top:0.9em; margin-bottom:0.9em;}
+.mbt15{margin-top:1.5em; margin-bottom:1.5em;}
+.mbt18{margin-top:1.8em; margin-bottom:1.8em;}
+/*元素上下内边距*/
+.pbt09{padding-top:0.9em; padding-bottom:0.9em;}
+/*行高控制*/
+.h04{line-height:0.4;vertical-align:center;}
+.h11{line-height:1.1;vertical-align:center;}
+.h20{line-height:2;vertical-align:bottom;}
+
+
+/*字体样式*/
+/*写法示例
+@font-face {
+    font-family: "xinyalan";
+    src:url("../Fonts/xinyalan.ttf");
+}
+.xinyalan{
+    font-family: xinyalan, serif;
+}
+*/
