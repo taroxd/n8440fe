@@ -18,18 +18,40 @@ translators.each do |d|
   book.add_contributor d
 end
 
-File.read 'style.css' do |f|
-  book.item('Styles/style.css').add_content(f)
+File.open 'style.css', mode: 'rb', encoding: 'utf-8' do |f|
+  book.add_item('Styles/style.css', content: f)
+end
+
+File.open 'zhu.png', mode: 'rb' do |f|
+  book.add_item('Images/zhu.png', content: f)
 end
 
 maintex = File.read '../n8440fe.tex', encoding: 'utf-8'
 
 abstract_match = /\\begin{abstract}(.+)\\end{abstract}/m.match(maintex)
-tex_to_html abstract_match[1]
+abstract = tex_to_html abstract_match[1]
 
 chapter_lists = maintex.scan(/^\\input\{(\d+)\}/).map { |(chap_id)| chap_id }
 
-book.ordered {
+chapter_contents = []
+contents_table = +""
+chapter_lists.each do |chap_id|
+  chap_file = File.read("../#{chap_id}.tex", encoding: 'utf-8')
+  id_int = chap_id.to_i
+  id_prefix = id_int < 10 ? "0#{id_int}" : id_int.to_s
+  content, title = parse_chapter(chap_file, id_int)
+  item_href = "Text/#{chap_id}.xhtml"
+  toc_text = "#{id_prefix} #{title}"
+  contents_table << <<~TR
+    <tr>
+      <td class="tdtop w40 pbt09"><a class="nodeco colorg" href="../#{item_href}">#{id_prefix}</a></td>
+      <td class="left pbt09"><a class="nodeco colorg" href="../#{item_href}">#{title}</a></td>
+    </tr>
+  TR
+  chapter_contents.push([item_href, content, toc_text])
+end
+
+book.ordered do
   book.add_item('text/title.xhtml').add_content(StringIO.new(<<~TITLE)).toc_text(title)
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
@@ -48,7 +70,7 @@ book.ordered {
     <p class="font09 center">作者</p>
     <p class="font10 color1 mtb05 center">#{author}</p>
     <p class="font09 center">译者</p>
-    <p class="font10 color1 mtb05 center">#{translators.join(' ')}</p>
+    <p class="font10 color1 mtb05 center">#{translators.join(', ')}</p>
       </div>
     </body>
     </html>
@@ -82,11 +104,59 @@ book.ordered {
     </body>
     </html>
   MESSAGE
-  chapter_lists.each do |chap_id|
-    chap_file = File.read("../#{chap_id}.tex", encoding: 'utf-8')
-    content, title = parse_chapter(chap_file, chap_id.to_i)
-    book.add_item("text/#{chap_id}.xhtml").add_content(StringIO.new(content)).toc_text(title)
+
+  book.add_item('text/introduction.xhtml').add_content(StringIO.new(<<~INTRODUCTION))
+    <?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+    <head>
+      <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
+
+      <title>简介</title>
+    </head>
+    <body>
+      <div>
+
+    <h1 class="color1">简介</h1>
+    <p>#{abstract}</p>
+
+      </div>
+    </body>
+    </html>
+  INTRODUCTION
+
+
+  book.add_item('Text/contents.xhtml').add_content(StringIO.new(<<~CONTENTS))
+    <?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+      "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN">
+    <head>
+      <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
+
+      <title>contents</title>
+    </head>
+    <body>
+      <div>
+    <h1 class="mbt15 colorco">目录</h1>
+
+    <table class="tdcenter">
+      <tbody>
+         #{contents_table}
+       </tbody>
+     </table>
+
+       </div>
+     </body>
+     </html>
+  CONTENTS
+
+  chapter_contents.each do |item_href, content, title|
+    book.add_item(item_href).add_content(StringIO.new(content)).toc_text(title)
   end
-}
+end
 
 book.generate_epub '../n8440fe.epub'
