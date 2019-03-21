@@ -48,6 +48,9 @@ chapter_lists.each do |chap_id|
       <td class="left pbt09"><a class="nodeco colorg" href="../#{item_href}">#{chap_title}</a></td>
     </tr>
   TR
+  if chap_id == '0001'
+    puts content
+  end
   chapter_contents.push([item_href, content, toc_text])
 end
 
