@@ -30,11 +30,10 @@ def line_to_html(line, wrap: nil, attrib: nil)
 
   # \footnote{1}
   footnotes = []
-  footnote_id = "#{Time.now.usec}-#{rand(0x100000000).to_s(36)}"
   line.gsub!(/\\footnote\{(.+)\}/) do
     footnote_contents = line_to_html before_brace($1)
-    icon = make_footnote_icon(footnote_id)
-    footnotes.push footnote_contents
+    icon, footnote_id = make_footnote_icon
+    footnotes.push [footnote_contents, footnote_id]
     icon
   end
 
@@ -46,7 +45,9 @@ def line_to_html(line, wrap: nil, attrib: nil)
   line.delete!('{}')
 
   result = +"#{start_tag}#{line}#{end_tag}"
-  result << make_footnote(footnotes, footnote_id)
+  footnotes.each do |content, footnote_id|
+    result << make_footnote(content, footnote_id)
+  end
   result
 end
 
@@ -92,24 +93,19 @@ def parse_chapter(tex_str, numbering)
   [html_str, chapter_title_plain]
 end
 
-def make_footnote_icon(id)
-  <<~ICON
-    <a class="duokan-footnote" href="##{id}"><img class="w10" src="../Images/zhu.png"/></a>
+def make_footnote_icon
+  footnote_id = "#{Time.now.usec}-#{rand(0x100000000).to_s(36)}"
+  [<<~ICON, footnote_id]
+    <a class="duokan-footnote" href="##{footnote_id}"><img class="w10" src="../Images/zhu.png"/></a>
   ICON
 end
 
 def make_footnote(contents, id)
-  return "" if contents.empty?
-  result = +<<~OL
+  <<~OL
     <ol class="duokan-footnote-content" id="#{id}">
+      <li class="duokan-footnote-item"><p class="po">#{contents}</p></li>
+    </ol>
   OL
-  contents.each do |c|
-    result << <<~LI
-      <li class="duokan-footnote-item"><p class="po">#{c}</p></li>
-    LI
-  end
-  result << '</ol>'
-  result
 end
 
 def before_brace(string)
