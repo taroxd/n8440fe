@@ -92,7 +92,7 @@ def parse_chapter(tex_str, numbering)
 end
 
 def make_footnote_icon
-  id = Time.now.to_i * 1000000 + Time.now.usec
+  id = "#{Time.now.usec}-#{rand(0x100000000).to_s(36)}"
   [<<~ICON, id]
     <a class="duokan-footnote" href="##{id}"><img class="w10" src="../Images/zhu.png"/></a>
   ICON
