@@ -62,7 +62,7 @@ end
 def parse_chapter(tex_str, numbering)
   html_str = +""
   chapter_title_plain = ''
-  number_str = numbering < 10 ? "0#{numbering}" : numbering.to_s
+  number_str = least_2_digits(numbering)
   tex_str.each_line do |line|
     # \subsection{1}, \subsection[1]{2}
     if /\\subsection(?:\[(.+?)\])?\{(.+)\}/ =~ line
@@ -125,4 +125,8 @@ def before_brace(string)
   end
 
   string
+end
+
+def least_2_digits(numbering)
+  numbering < 10 ? "0#{numbering}" : numbering.to_s
 end

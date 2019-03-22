@@ -38,7 +38,7 @@ contents_table = +""
 chapter_lists.each do |chap_id|
   chap_file = File.read("../#{chap_id}.tex", encoding: 'utf-8')
   id_int = chap_id.to_i
-  id_prefix = id_int < 10 ? "0#{id_int}" : id_int.to_s
+  id_prefix = least_2_digits(id_int)
   content, chap_title = parse_chapter(chap_file, id_int)
   item_href = "Text/#{chap_id}.xhtml"
   toc_text = "#{id_prefix} #{chap_title}"
