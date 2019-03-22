@@ -4,6 +4,9 @@ require_relative 'utils'
 title = '关于邻家的天使大人不知不觉把我惯成了废人这档子事'
 author = '佐伯さん'
 translators = ['taroxd', 'tongyuantongyu']
+
+Dir.chdir __dir__
+
 book = GEPUB::Book.new
 book.primary_identifier('https://www.lightnovel.cn/thread-960506-1-1.html')
 book.language = 'zh'
