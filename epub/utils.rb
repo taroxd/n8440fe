@@ -31,9 +31,10 @@ def line_to_html(line, wrap: nil, attrib: nil)
   # \footnote{1}
   footnotes = []
   line.gsub!(/\\footnote\{(.+)\}/) do
-    footnote_contents = line_to_html before_brace($1)
-    icon, footnote_id = make_footnote_icon
-    footnotes.push [footnote_contents, footnote_id]
+    footnote_content = line_to_html before_brace($1)
+    footnote_id = generate_footnote_id
+    icon = make_footnote_icon footnote_id
+    footnotes.push [footnote_content, footnote_id]
     icon
   end
 
@@ -45,9 +46,7 @@ def line_to_html(line, wrap: nil, attrib: nil)
   line.delete!('{}')
 
   result = +"#{start_tag}#{line}#{end_tag}"
-  footnotes.each do |content, footnote_id|
-    result << make_footnote(content, footnote_id)
-  end
+  result << make_footnote(footnotes)
   result
 end
 
@@ -71,7 +70,7 @@ def parse_chapter(tex_str, numbering)
       chapter_title_contents = "#{number_str} #{chapter_title_contents}"
       chapter_title_contents = line_to_html(chapter_title_contents, wrap: 'h1', attrib: 'class="color1"')
       title = line_to_html "#{number_str} #{chapter_title_plain}"
-      html_str << <<~TEMPLATE
+      html_str << <<~TEMPLATE.chomp
         <?xml version="1.0" encoding="utf-8"?>
         <!DOCTYPE html>
 
@@ -92,18 +91,19 @@ def parse_chapter(tex_str, numbering)
   [html_str, chapter_title_plain]
 end
 
-def make_footnote_icon
-  footnote_id = "#{Time.now.usec}-#{rand(0x100000000).to_s(36)}"
-  [<<~ICON, footnote_id]
+def make_footnote_icon(footnote_id)
+  <<~ICON.chomp
     <a class="duokan-footnote" href="##{footnote_id}"><img class="w10" alt="note" src="../Images/zhu.png"/></a>
   ICON
 end
 
-def make_footnote(contents, id)
-  <<~OL
-    <ol class="duokan-footnote-content" id="#{id}">
-      <li class="duokan-footnote-item"><p class="po">#{contents}</p></li>
-    </ol>
+def make_footnote(footnotes)
+  return "" if footnotes.empty?
+  li = footnotes.map { |content, footnote_id| <<~LI.chomp }.join
+    <li class="duokan-footnote-item" id="#{footnote_id}"><p class="po">#{content}</p></li>
+  LI
+  <<~OL.chomp
+    <ol class="duokan-footnote-content">#{li}</ol>
   OL
 end
 
@@ -129,4 +129,8 @@ end
 
 def least_2_digits(numbering)
   numbering < 10 ? "0#{numbering}" : numbering.to_s
+end
+
+def generate_footnote_id
+  "#{Time.now.usec}-#{rand(0x100000000).to_s(36)}"
 end

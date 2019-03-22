@@ -42,7 +42,7 @@ chapter_lists.each do |chap_id|
   content, chap_title = parse_chapter(chap_file, id_int)
   item_href = "Text/#{chap_id}.xhtml"
   toc_text = "#{id_prefix} #{chap_title}"
-  contents_table << <<~TR
+  contents_table << <<~TR.chomp
     <tr>
       <td class="tdtop w40 pbt09"><a class="nodeco colorg" href="../#{item_href}">#{id_prefix}</a></td>
       <td class="left pbt09"><a class="nodeco colorg" href="../#{item_href}">#{chap_title}</a></td>
@@ -52,7 +52,7 @@ chapter_lists.each do |chap_id|
 end
 
 book.ordered do
-  book.add_item('text/title.xhtml').add_content(StringIO.new(<<~TITLE)).toc_text(title)
+  book.add_item('text/title.xhtml').add_content(StringIO.new(<<~TITLE.chomp)).toc_text(title)
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
@@ -75,7 +75,7 @@ book.ordered do
     </html>
   TITLE
 
-  book.add_item('text/message.xhtml').add_content(StringIO.new(<<~MESSAGE))
+  book.add_item('text/message.xhtml').add_content(StringIO.new(<<~MESSAGE.chomp))
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
@@ -103,7 +103,7 @@ book.ordered do
     </html>
   MESSAGE
 
-  book.add_item('text/introduction.xhtml').add_content(StringIO.new(<<~INTRODUCTION))
+  book.add_item('text/introduction.xhtml').add_content(StringIO.new(<<~INTRODUCTION.chomp))
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
@@ -124,7 +124,7 @@ book.ordered do
     </html>
   INTRODUCTION
 
-  book.add_item('Text/contents.xhtml').add_content(StringIO.new(<<~CONTENTS))
+  book.add_item('Text/contents.xhtml').add_content(StringIO.new(<<~CONTENTS.chomp))
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
