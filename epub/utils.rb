@@ -1,6 +1,7 @@
 
 def line_to_html(line, wrap: nil, attrib: nil)
-  line = line.strip
+  line = line.sub(/(?<!\\)%.*/, '')
+  line.strip!
   line.chomp!('\\\\')
   line.strip!
   return '' if line.empty?
