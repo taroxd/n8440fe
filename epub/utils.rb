@@ -47,7 +47,9 @@ def line_to_html(line, wrap: nil, attrib: nil)
   line.delete!('{}')
 
   result = +"#{start_tag}#{line}#{end_tag}"
-  result << make_footnote(footnotes)
+  footnotes.each do |content, footnote_id|
+    result << make_footnote(content, footnote_id)
+  end
   result
 end
 
@@ -98,9 +100,8 @@ def make_footnote_icon(footnote_id)
   ICON
 end
 
-def make_footnote(footnotes)
-  return "" if footnotes.empty?
-  footnotes.map { |content, footnote_id| <<~FOOTNOTE.chomp }.join
+def make_footnote(content, footnote_id)
+  <<~FOOTNOTE.chomp
     <aside epub:type="footnote" id="#{footnote_id}" class="po"><a href="##{footnote_id}-ref"></a>
       #{content}
     </aside>
