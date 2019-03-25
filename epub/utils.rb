@@ -94,18 +94,17 @@ end
 
 def make_footnote_icon(footnote_id)
   <<~ICON.chomp
-    <a class="duokan-footnote" href="##{footnote_id}"><img class="w10" alt="note" src="../Images/zhu.png"/></a>
+    <a class="duokan-footnote" epub:type="noteref" href="##{footnote_id}" id="#{footnote_id}-ref"><img class="w10" alt="note" src="../Images/zhu.png"/></a>
   ICON
 end
 
 def make_footnote(footnotes)
   return "" if footnotes.empty?
-  li = footnotes.map { |content, footnote_id| <<~LI.chomp }.join
-    <li class="duokan-footnote-item" id="#{footnote_id}"><p class="po">#{content}</p></li>
-  LI
-  <<~OL.chomp
-    <ol class="duokan-footnote-content">#{li}</ol>
-  OL
+  footnotes.map { |content, footnote_id| <<~FOOTNOTE.chomp }.join
+    <aside epub:type="footnote" id="#{footnote_id}" class="po"><a href="##{footnote_id}-ref"></a>
+      #{content}
+    </aside>
+  FOOTNOTE
 end
 
 def before_brace(string)
