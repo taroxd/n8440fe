@@ -29,6 +29,10 @@ File.open 'zhu.png', mode: 'rb' do |f|
   book.add_item('Images/zhu.png', content: f)
 end
 
+File.open 'cover.jpg', mode: 'rb' do |f|
+  book.add_item('Images/cover.jpg', content: f).cover_image
+end
+
 maintex = File.read '../n8440fe.tex', encoding: 'utf-8'
 
 abstract_match = /\\begin{abstract}(.+)\\end{abstract}/m.match(maintex)
@@ -55,6 +59,22 @@ chapter_lists.each do |chap_id|
 end
 
 book.ordered do
+  book.add_item('text/cover.xhtml', content: StringIO.new(<<~COVER.chomp)).landmark(type: 'cover', title: '封面')
+    <?xml version="1.0" encoding="utf-8"?>
+    <!DOCTYPE html>
+
+    <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
+    <head>
+      <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
+
+      <title>封面</title>
+    </head>
+    <body>
+      <div class="cover duokan-image-single"><img alt="" src="../Images/cover.jpg"/></div>
+    </body>
+    </html>
+  COVER
+
   book.add_item('text/title.xhtml').add_content(StringIO.new(<<~TITLE.chomp)).toc_text(title)
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
