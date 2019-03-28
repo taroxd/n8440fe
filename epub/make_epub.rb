@@ -59,7 +59,7 @@ chapter_lists.each do |chap_id|
 end
 
 book.ordered do
-  book.add_item('text/cover.xhtml', content: StringIO.new(<<~COVER.chomp)).landmark(type: 'cover', title: '封面')
+  book.add_item('Text/cover.xhtml', content: StringIO.new(<<~COVER.chomp)).landmark(type: 'cover', title: '封面')
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
@@ -75,7 +75,7 @@ book.ordered do
     </html>
   COVER
 
-  book.add_item('text/title.xhtml').add_content(StringIO.new(<<~TITLE.chomp)).toc_text(title)
+  book.add_item('Text/title.xhtml').add_content(StringIO.new(<<~TITLE.chomp)).toc_text(title)
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
@@ -98,7 +98,7 @@ book.ordered do
     </html>
   TITLE
 
-  book.add_item('text/message.xhtml').add_content(StringIO.new(<<~MESSAGE.chomp))
+  book.add_item('Text/message.xhtml').add_content(StringIO.new(<<~MESSAGE.chomp))
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
@@ -126,7 +126,7 @@ book.ordered do
     </html>
   MESSAGE
 
-  book.add_item('text/introduction.xhtml').add_content(StringIO.new(<<~INTRODUCTION.chomp))
+  book.add_item('Text/introduction.xhtml').add_content(StringIO.new(<<~INTRODUCTION.chomp))
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
