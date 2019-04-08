@@ -20,9 +20,15 @@
 \usepackage[numbered]{bookmark}
 
 % 思源黑体
-\newjfontfamily\jpfont{SourceHanSansJP-Normal}
+\newjfontfamily{\jpfont}[
+  BoldFont=SourceHanSansJP-Bold,
+  YokoFeatures={JFM=prop}
+]{SourceHanSansJP-Normal}
 % 方正兰亭黑系列
-\setmainjfont[BoldFont=FZLTZHK--GBK1-0,YokoFeatures={JFM=prop}]{FZLTXIHK--GBK1-0}
+\setmainjfont[
+  BoldFont=FZLTZHK--GBK1-0,
+  YokoFeatures={JFM=prop}
+]{FZLTXIHK--GBK1-0}
 \renewcommand{\familydefault}{\sfdefault}
 
 \ltjsetparameter{prebreakpenalty={`—, 10000}}
