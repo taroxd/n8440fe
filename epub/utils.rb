@@ -44,7 +44,7 @@ def line_to_html(line, wrap: nil, attrib: nil)
     return "<li>#{contents}</li>"
   end
 
-  line.delete!('{}')
+  line.delete!('{}\\')
 
   result = +"#{start_tag}#{line}#{end_tag}"
   footnotes.each do |content, footnote_id|
