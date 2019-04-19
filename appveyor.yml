@@ -1,20 +1,24 @@
-  version: 1.0.{build}
-  environment:
-    github_access_token:
-      secure: XaPhHBNztDcP1eTiOWEKAd8wYcW9bvK5e8NFZJDgCFBf0f48tMI1r5hT19jSc2sQ
-  install:
-  - sh: >-
-      bundle install
-      
-      rvm use 2.5.3
-      
-      bundle install
-      
-      gem install gepub
-      
-      sudo apt-get update && sudo apt-get install -y --quiet --no-install-recommends latexmk
-  build_script:
-  - sh: >-
+version: 1.0.{build}
+image: Ubuntu1604
+environment:
+  github_access_token:
+    secure: XaPhHBNztDcP1eTiOWEKAd8wYcW9bvK5e8NFZJDgCFBf0f48tMI1r5hT19jSc2sQ
+install:
+- sh: >-
+    bundle install
+
+    rvm use 2.5.3
+
+    bundle install
+
+    ruby gem install gepub
+
+    sudo apt-get update && sudo apt-get install -y --quiet --no-install-recommends latexmk
+build_script:
+- sh: >-
     ruby epub\make_epub.rb
-    
+
     latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 n8440fe.tex
+artifacts:
+- path: '*.epub'
+- path: '*.pdf'
