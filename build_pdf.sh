@@ -3,8 +3,8 @@ mkdir fonts
 cd fonts
 wget https://github.com/adobe-fonts/source-han-sans/raw/release/SubsetOTF/SourceHanSansJP.zip
 wget http://saigetsu.moe/Saigetsu/FZLTXIHK--GBK1-0.TTF
-unzip SourceHanSansJ.zip
-rm SourceHansSansJ.zip
+unzip SourceHanSansJP.zip
+rm SourceHansSansJP.zip
 mkdir -p /usr/share/fonts/custom
 cp -r ./SourceHanSansJP/* /usr/share/fonts/custom
 cp FZLTXIHK--GBK1-0.TTF /usr/share/fonts/custom
