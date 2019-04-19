@@ -11,7 +11,7 @@ install:
 
     bundle install
 
-    ruby gem install gepub
+    gem install gepub
 build_script:
 - sh: >-
     ruby epub\make_epub.rb
@@ -21,4 +21,19 @@ for:
     only:
       - master
   deploy_script:
-  - git config --global credential.helper store
+  - sh: >-
+
+    git config --global user.email "recollectionforgot@gmail.com"
+
+    git config --global user.name "Finnite"
+
+    git checkout gh-pages --soft
+
+    git remote rm origin
+    git remote add origin https://hxdnshx:$github_access_token@github.com/hxdnshx/n8440fe.git
+
+    git add .
+
+    git commit ...
+
+    git push ...
