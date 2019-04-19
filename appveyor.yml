@@ -4,9 +4,9 @@ install:
 - sh: >-
     set PATH=C:\Ruby22\bin;%PATH%
 
-    ruby gem install gepub
+    gem install gepub
 
-    apt-get update && apt-get install -y --quiet --no-install-recommends latexmk
+    sudo apt-get update && sudo apt-get install -y --quiet --no-install-recommends latexmk
 build_script:
 - sh: >-
     ruby epub\make_epub.rb
