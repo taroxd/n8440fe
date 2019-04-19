@@ -1,20 +1,17 @@
 version: 1.0.{build}
-image: ubuntu
+image: Ubuntu1604
 install:
-  - set PATH=C:\Ruby22\bin;%PATH%
-  - bundle install
-  - apt-get update && apt-get install -y --quiet --no-install-recommends latexmk
-build: off
+- sh: >-
+    set PATH=C:\Ruby22\bin;%PATH%
 
-before_test:
-  - ruby -v
-  - gem -v
-  - bundle -v
+    ruby gem install gepub
 
-branches:
-  only:
-    - master
+    apt-get update && apt-get install -y --quiet --no-install-recommends latexmk
+build_script:
+- sh: >-
+    ruby epub\make_epub.rb
 
-test_script:
-  - ruby epub\make_epub.rb
-  - latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 n8440fe.tex
+    latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 n8440fe.tex
+artifacts:
+- path: '*.epub'
+- path: '*.pdf'
