@@ -1,18 +1,19 @@
-sudo tlmgr install luatexja
+tlmgr install luatexja
 mkdir fonts
 cd fonts
 wget https://github.com/adobe-fonts/source-han-sans/raw/release/SubsetOTF/SourceHanSansJP.zip
-sudo apt-get install unzip
+wget http://saigetsu.moe/Saigetsu/FZLTXIHK--GBK1-0.TTF
 unzip SourceHanSansJ.zip
 rm SourceHansSansJ.zip
-sudo mkdir -p /usr/share/fonts/custom
-sudo cp -r ./SourceHanSansJP/* /usr/share/fonts/custom
-sudo chmod -r 744 /usr/share/fonts/custom/*
+mkdir -p /usr/share/fonts/custom
+cp -r ./SourceHanSansJP/* /usr/share/fonts/custom
+cp FZLTXIHK--GBK1-0.TTF /usr/share/fonts/custom
+chmod -r 744 /usr/share/fonts/custom/*
 
 
 
-sudo mkfontscale 
-sudo mkfontdir
+mkfontscale 
+mkfontdir
 
 fc-list
 
