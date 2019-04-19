@@ -15,7 +15,7 @@ install:
 build_script:
 - sh: >-
     ruby epub\make_epub.rb
-
+for:
 - 
   branches:
     only:
