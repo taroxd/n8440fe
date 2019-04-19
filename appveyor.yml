@@ -5,14 +5,24 @@ environment:
     secure: XaPhHBNztDcP1eTiOWEKAd8wYcW9bvK5e8NFZJDgCFBf0f48tMI1r5hT19jSc2sQ
 install:
 - sh: >-
-    bundle install
-
     rvm use 2.5.3
-
-    bundle install
 
     gem install gepub
 build_script:
 - sh: >-
-    ruby epub\make_epub.rb
+    ruby epub/make_epub.rb
 
+for:
+- 
+  branches:
+    only:
+      - master
+  deploy_script:
+  - git config --global user.email "recollectionforgot@gmail.com"
+  - git config --global user.name "Finnite"
+  - git checkout gh-pages --soft
+  - git remote rm origin
+  - git remote add origin https://hxdnshx:$github_access_token@github.com/hxdnshx/n8440fe.git
+  - git add .
+  - git commit ...
+  - git push ...
