@@ -23,21 +23,5 @@ artifacts:
   branches:
     only:
       - master
-
-  configuration: Release
-
   deploy_script:
-  - sh: >-
-    git config --global credential.helper store
-
-    git config --global user.email "recollectionforgot@gmail.com"
-
-    git config --global user.name "Finnite"
-
-    git checkout gh-pages --soft
-
-    git add .
-
-    git commit ...
-
-    git push ...
+  - git config --global credential.helper store
