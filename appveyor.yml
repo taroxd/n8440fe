@@ -3,7 +3,7 @@ image: ubuntu
 install:
   - set PATH=C:\Ruby22\bin;%PATH%
   - bundle install
-  - sudo apt-get update && apt-get install -y --quiet --no-install-recommends latexmk
+  - apt-get update && apt-get install -y --quiet --no-install-recommends latexmk
 build: off
 
 before_test:
