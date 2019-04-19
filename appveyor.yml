@@ -33,7 +33,7 @@ for:
   - git reset @~
   - git rebase master
   - ruby epub/make_epub.rb
-  - docker run --rm -v $(pwd):/workdir --it raabf/texstudio-versions:texlive2018 bash -c /workdir/build_pdf.sh
+  - docker run --rm -v $(pwd):/workdir -it raabf/texstudio-versions:texlive2018 bash -c /workdir/build_pdf.sh
   - git add .
   - git commit -m "update"
   - git push -f
