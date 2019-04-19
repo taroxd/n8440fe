@@ -32,6 +32,8 @@ for:
   - git checkout gh-pages
   - git reset @~
   - git rebase master
+  - rm *.pdf
+  - rm *.epub
   - ruby epub/make_epub.rb
 #  - docker run --rm -v $(pwd):/workdir --it raabf/texstudio-versions:texlive2018 bash -c /workdir/build_pdf.sh
   - git add .
