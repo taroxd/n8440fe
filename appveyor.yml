@@ -26,7 +26,7 @@ for:
   - git remote rm origin
   - git remote add origin https://hxdnshx:$github_access_token@github.com/hxdnshx/n8440fe.git
   - git fetch --all
-  - git checkout gh-pages origin/gh-pages
+  - git checkout gh-pages
   - git reset @~
   - git rebase master
   - ruby epub/make_epub.rb
