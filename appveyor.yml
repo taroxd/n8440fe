@@ -1,4 +1,4 @@
-version: 1.0.{build}
+  version: 1.0.{build}
   environment:
     github_access_token:
       secure: XaPhHBNztDcP1eTiOWEKAd8wYcW9bvK5e8NFZJDgCFBf0f48tMI1r5hT19jSc2sQ
