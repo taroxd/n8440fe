@@ -1,0 +1,20 @@
+version: 1.0.{build}
+image: ubuntu
+install:
+  - set PATH=C:\Ruby22\bin;%PATH%
+  - bundle install
+  - sudo apt-get update && apt-get install -y --quiet --no-install-recommends latexmk
+build: off
+
+before_test:
+  - ruby -v
+  - gem -v
+  - bundle -v
+
+branches:
+  only:
+    - master
+
+test_script:
+  - ruby epub\make_epub.rb
+  - latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 n8440fe.tex
