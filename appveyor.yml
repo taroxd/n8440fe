@@ -5,7 +5,7 @@ environment:
     secure: XaPhHBNztDcP1eTiOWEKAd8wYcW9bvK5e8NFZJDgCFBf0f48tMI1r5hT19jSc2sQ
 branches:
   except:
-    -gh-pages
+    - gh-pages
 install:
 - sh: >-
     rvm use 2.5.3
