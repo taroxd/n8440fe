@@ -15,9 +15,6 @@ install:
 build_script:
 - sh: >-
     ruby epub\make_epub.rb
-artifacts:
-  - path: '*.epub'
-  - path: '*.pdf'
 
 - 
   branches:
