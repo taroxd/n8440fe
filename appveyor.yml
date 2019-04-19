@@ -13,6 +13,8 @@ install:
 build_script:
 - sh: >-
     ruby epub/make_epub.rb
+    
+    
 for:
 - 
   branches:
@@ -21,9 +23,14 @@ for:
   deploy_script:
   - git config --global user.email "recollectionforgot@gmail.com"
   - git config --global user.name "Finnite"
-  - git reset gh-pages --soft
   - git remote rm origin
   - git remote add origin https://hxdnshx:$github_access_token@github.com/hxdnshx/n8440fe.git
+  - git fetch --all
+  - git git checkout gh-pages origin/gh-pages
+  - git reset @~
+  - git rebase master
+  - ruby epub/make_epub.rb
+  - docker run --rm -v $(pwd):/workdir --it raabf/texstudio-versions:texlive2018 bash -c /workdir/build_pdf.sh
   - git add .
-  - git commit ...
-  - git push ...
+  - git commit -m "update"
+  - git push -f
