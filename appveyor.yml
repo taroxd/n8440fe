@@ -1,26 +1,32 @@
-version: 1.0.{build}
-image: Ubuntu1604
-environment:
-  github_access_token:
-    secure: XaPhHBNztDcP1eTiOWEKAd8wYcW9bvK5e8NFZJDgCFBf0f48tMI1r5hT19jSc2sQ
-install:
-- sh: >-
-    set PATH=C:\Ruby23\bin;%PATH%
-
-    gem install gepub
-
-    sudo apt-get update && sudo apt-get install -y --quiet --no-install-recommends latexmk
-build_script:
-- sh: >-
-    ruby epub\make_epub.rb
-
-    latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 n8440fe.tex
-artifacts:
-  - path: '*.epub'
-  - path: '*.pdf'
-
-
 -
+  version: 1.0.{build}
+  image: Ubuntu1604
+  environment:
+    github_access_token:
+      secure: XaPhHBNztDcP1eTiOWEKAd8wYcW9bvK5e8NFZJDgCFBf0f48tMI1r5hT19jSc2sQ
+  install:
+  - sh: >-
+      set PATH=C:\Ruby23\bin;%PATH%
+      gem install gepub
+      sudo apt-get update && sudo apt-get install -y --quiet --no-install-recommends latexmk
+  build_script:
+  - sh: >-
+    ruby epub\make_epub.rb
+    latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 n8440fe.tex
+  artifacts:
+    - path: '*.epub'
+    - path: '*.pdf'
+-
+  version: 1.0.{build}
+  image: Ubuntu1604
+  environment:
+    github_access_token:
+      secure: XaPhHBNztDcP1eTiOWEKAd8wYcW9bvK5e8NFZJDgCFBf0f48tMI1r5hT19jSc2sQ
+  install:
+  - sh: >-
+      set PATH=C:\Ruby23\bin;%PATH%
+      gem install gepub
+      sudo apt-get update && sudo apt-get install -y --quiet --no-install-recommends latexmk
   branches:
     only:
       - master
