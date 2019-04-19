@@ -9,7 +9,7 @@ install:
 
     gem install gepub
     
-    docker pull raabf/texstudio-versions:texlive2018
+#    docker pull raabf/texstudio-versions:texlive2018
 build_script:
 - sh: >-
     ruby epub/make_epub.rb
@@ -26,11 +26,11 @@ for:
   - git remote rm origin
   - git remote add origin https://hxdnshx:$github_access_token@github.com/hxdnshx/n8440fe.git
   - git fetch --all
-  - git git checkout gh-pages origin/gh-pages
+  - git checkout gh-pages origin/gh-pages
   - git reset @~
   - git rebase master
   - ruby epub/make_epub.rb
-  - docker run --rm -v $(pwd):/workdir --it raabf/texstudio-versions:texlive2018 bash -c /workdir/build_pdf.sh
+#  - docker run --rm -v $(pwd):/workdir --it raabf/texstudio-versions:texlive2018 bash -c /workdir/build_pdf.sh
   - git add .
   - git commit -m "update"
   - git push -f
