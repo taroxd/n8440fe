@@ -30,6 +30,7 @@ for:
     git checkout gh-pages --soft
 
     git remote rm origin
+    
     git remote add origin https://hxdnshx:$github_access_token@github.com/hxdnshx/n8440fe.git
 
     git add .
