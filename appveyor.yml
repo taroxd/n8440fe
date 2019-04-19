@@ -12,13 +12,32 @@ install:
     bundle install
 
     ruby gem install gepub
-
-    sudo apt-get update && sudo apt-get install -y --quiet --no-install-recommends latexmk
 build_script:
 - sh: >-
-    ruby epub\make_epub.rb
-
-    latexmk -cd -f -lualatex -interaction=nonstopmode -synctex=1 n8440fe.tex
+    ruby epub/make_epub.rb
 artifacts:
 - path: '*.epub'
 - path: '*.pdf'
+
+- 
+  branches:
+    only:
+      - master
+
+  configuration: Release
+
+  deploy_script:
+  - sh: >-
+    git config --global credential.helper store
+
+    git config --global user.email "recollectionforgot@gmail.com"
+
+    git config --global user.name "Finnite"
+
+    git checkout gh-pages --soft
+
+    git add .
+
+    git commit ...
+
+    git push ...
