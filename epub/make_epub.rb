@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'gepub'
 require_relative 'utils'
 
