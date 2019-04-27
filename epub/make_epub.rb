@@ -6,6 +6,7 @@ require_relative 'utils'
 title = '关于邻家的天使大人不知不觉把我惯成了废人这档子事'
 author = '佐伯さん'
 translators = ['taroxd', 'tongyuantongyu', '浪人', 'kae', '冰川镜华', '纱优纱优']
+reviewers = ['taroxd']
 
 Dir.chdir __dir__
 
@@ -15,8 +16,7 @@ book.language = 'zh'
 
 book.add_title title,
   title_type: GEPUB::TITLE_TYPE::MAIN,
-  lang: 'zh',
-  file_as: 'taroxd'
+  lang: 'zh'
 
 book.add_creator author
 translators.each do |d|
@@ -95,6 +95,8 @@ book.ordered do
     <p class="font10 color1 mtb05 center">#{author}</p>
     <p class="font09 center">译者</p>
     <p class="font10 color1 mtb05 center">#{translators.join(', ')}</p>
+    <p class="font09 center">校对</p>
+    <p class="font10 color1 mtb05 center">#{reviewers.join(' ,')}</p>
       </div>
     </body>
     </html>
@@ -117,12 +119,13 @@ book.ordered do
     <p class="cutline">≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡</p>
     <p class="makerifm">作者：#{author}</p>
     <p class="makerifm">译者：#{translators.join(', ')}</p>
+    <p class="makerifm">校对：#{reviewers.join(' ,')}</p>
+    <p class="makerifm">制作：大括号不换行汉化组</p>
     <p class="makerifm">轻之国度：https://www.lightnovel.cn</p>
     <p class="makerifm">仅供个人学习交流使用，禁作商业用途</p>
     <p class="makerifm">下载后请在24小时内删除，LK不负担任何责任</p>
     <p class="makerifm">请尊重翻译、扫图、录入、校对的辛勤劳动，转载请保留信息</p>
     <p class="cutline">≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡</p>
-
       </div>
     </body>
     </html>
