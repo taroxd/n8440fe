@@ -20,13 +20,11 @@ def line_to_html(line, wrap: nil, attrib: nil)
     rb, pos = before_brace_with_index $1
     rt, pos = before_brace_with_index $1, pos + 2
     rest = line_to_html $1[(pos + 1)..]
-    remove_format = lambda do |s|
-      s.delete!('|{}')
-    end
-    remove_format.call rb
-    remove_format.call rt
-
-    "<ruby>#{rb}<rt>#{rt}</rt></ruby>#{rest}"
+    gsub_result = ""
+    [rb, rt].each { |r| r.delete!('{}') }
+    rb.split('|').zip(rt.split('|')).map { |rb_part, rt_part|
+      "<ruby>#{rb_part}<rt>#{rt_part}</rt></ruby>"
+    }.join + rest
   end
   return '<ul>' if line.include?('\\begin{itemize}')
   return '</ul>' if line.include?('\\end{itemize}')
@@ -98,7 +96,7 @@ end
 
 def make_footnote_icon(footnote_id)
   <<~ICON.chomp
-    <a class="duokan-footnote" epub:type="noteref" href="##{footnote_id}" id="#{footnote_id}-ref"><img class="w10" alt="note" src="../Images/zhu.png"/></a>
+    <a epub:type="noteref" href="##{footnote_id}" id="#{footnote_id}-ref"><img class="w10" alt="note" src="../Images/zhu.png"/></a>
   ICON
 end
 

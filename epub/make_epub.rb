@@ -72,7 +72,7 @@ book.ordered do
       <title>封面</title>
     </head>
     <body>
-      <div class="cover duokan-image-single"><img alt="" src="../Images/cover.jpg"/></div>
+      <div class="cover"><img alt="" src="../Images/cover.jpg"/></div>
     </body>
     </html>
   COVER
