@@ -18,6 +18,7 @@
 \usepackage[perpage]{footmisc}
 \usepackage[unicode,hidelinks]{hyperref}
 \usepackage[numbered]{bookmark}
+\usepackage{luacode}
 
 % 思源黑体
 \newjfontfamily{\jpfont}[
@@ -43,7 +44,10 @@
 \renewcommand{\dateseparator}{.}
 
 \counterwithout{subsection}{section}
-\newcommand*\sectotoc[1]{\section*{#1}\addcontentsline{toc}{section}{#1}}
+\newcommand*\sectotoc[1]{
+  \section*{#1}
+  \addcontentsline{toc}{section}{#1}
+}
 
 % DO NOT remove the following line! It is processed by a script
 % \setcounter{subsection}{<N8440FE_SUBSECTION_COUNTER>}
@@ -88,65 +92,10 @@
 
 \sectotoc{第一章}
 
-\input{0001}
-\input{0002}
-\input{0003}
-\input{0004}
-\input{0005}
-\input{0006}
-\input{0007}
-\input{0008}
-\input{0009}
-\input{0010}
-\input{0011}
-\input{0012}
-\input{0013}
-\input{0014}
-\input{0015}
-\input{0016}
-\input{0017}
-\input{0018}
-\input{0019}
-\input{0020}
-\input{0021}
-\input{0022}
-\input{0023}
-\input{0024}
-\input{0025}
-\input{0026}
-\input{0027}
-\input{0028}
-\input{0029}
-\input{0030}
-\input{0031}
-\input{0032}
-\input{0033}
-\input{0034}
-\input{0035}
-\input{0036}
-\input{0037}
-\input{0038}
-\input{0039}
-\input{0040}
-\input{0041}
-\input{0042}
-\input{0043}
-\input{0044}
-\input{0045}
-\input{0046}
-\input{0047}
-\input{0048}
-\input{0049}
-\input{0050}
-\input{0051}
-\input{0052}
-\input{0053}
-\input{0054}
-\input{0055}
-\input{0056}
-\input{0057}
-\input{0058}
-\input{0059}
-\input{0060}
+\luaexec{
+  for i=1,60,1 do
+    tex.sprint(string.format("\\input{\%04d}", i))
+  end
+}
 
 \end{document}
