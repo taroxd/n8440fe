@@ -45,19 +45,19 @@ FFFF。
 % 42 TITLE
 \subsection{title}
 
-% AAAA。
+% AAAA。\\
 aaaa。\\
 
 % 「BBBB」
 「bbbb」
 
-% 『CCCC』
+% 『CCCC』\\
 『cccc』\\
 
 % DDDD。
 dddd。
 
-% EEEE。
+% EEEE。\\
 eeee。\\                 % 大换行前
 
 \vspace{2\baselineskip}  % 或者保留连续的换行，让我来加这一行代码
@@ -79,19 +79,19 @@ ffff。  % 每一章节的最后一行不需要 \\
 42 title
 
 
-AAAA。
+AAAA。\\
 aaaa。\\
 
 「BBBB」
 「bbbb」
 
-『CCCC』
+『CCCC』\\
 『cccc』\\
 
 DDDD。
 dddd。
 
-EEEE。
+EEEE。\\
 eeee。\\
 
 
