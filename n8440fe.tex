@@ -90,7 +90,7 @@
 \sectotoc{第一章}
 
 \luaexec{
-  for i=1,65,1 do
+  for i=1,66,1 do
     tex.sprint(string.format("\\setcounter{subsection}{\%d}", i-1))
     tex.sprint(string.format("\\input{\%04d}", i))
   end
