@@ -15,17 +15,7 @@ def line_to_html(line, wrap: nil, attrib: nil)
     return "#{start_tag}<br/>#{end_tag}"
   end
   line.gsub!(/\\jpfont\s+/, '')
-  # \ruby{1}{2}
-  line.gsub!(/\\ruby\{(.+)/) do
-    rb, pos = before_brace_with_index $1
-    rt, pos = before_brace_with_index $1, pos + 2
-    rest = line_to_html $1[(pos + 1)..]
-    gsub_result = ""
-    [rb, rt].each { |r| r.delete!('{}') }
-    rb.split('|').zip(rt.split('|')).map { |rb_part, rt_part|
-      "<ruby>#{rb_part}<rt>#{rt_part}</rt></ruby>"
-    }.join + rest
-  end
+
   return '<ul>' if line.include?('\\begin{itemize}')
   return '</ul>' if line.include?('\\end{itemize}')
 
@@ -44,12 +34,25 @@ def line_to_html(line, wrap: nil, attrib: nil)
     return "<li>#{contents}</li>"
   end
 
+  # \ruby{1}{2}
+  line.gsub!(/\\ruby\{(.+)/) do
+    rb, pos = before_brace_with_index $1
+    rt, pos = before_brace_with_index $1, pos + 2
+    rest = line_to_html $1[(pos + 1)..]
+    gsub_result = ""
+    [rb, rt].each { |r| r.delete!('{}') }
+    rb.split('|').zip(rt.split('|')).map { |rb_part, rt_part|
+      "<ruby>#{rb_part}<rt>#{rt_part}</rt></ruby>"
+    }.join + rest
+  end
+
   line.delete!('{}\\')
 
   result = +"#{start_tag}#{line}#{end_tag}"
   footnotes.each do |content, footnote_id|
     result << make_footnote(content, footnote_id)
   end
+
   result
 end
 
@@ -102,8 +105,8 @@ end
 
 def make_footnote(content, footnote_id)
   <<~FOOTNOTE.chomp
-    <aside epub:type="footnote" id="#{footnote_id}" class="po"><a href="##{footnote_id}-ref"></a>
-      #{content}
+    <aside epub:type="footnote" id="#{footnote_id}"><a href="##{footnote_id}-ref"></a>
+      <p class="po">#{content}</p>
     </aside>
   FOOTNOTE
 end
