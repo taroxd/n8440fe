@@ -97,7 +97,7 @@ book.ordered do
     <p class="font09 center">译者</p>
     <p class="font10 color1 mtb05 center">#{translators.join(', ')}</p>
     <p class="font09 center">校对</p>
-    <p class="font10 color1 mtb05 center">#{reviewers.join(' ,')}</p>
+    <p class="font10 color1 mtb05 center">#{reviewers.join(', ')}</p>
       </div>
     </body>
     </html>
@@ -120,7 +120,7 @@ book.ordered do
     <p class="cutline">≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡</p>
     <p class="makerifm">作者：#{author}</p>
     <p class="makerifm">译者：#{translators.join(', ')}</p>
-    <p class="makerifm">校对：#{reviewers.join(' ,')}</p>
+    <p class="makerifm">校对：#{reviewers.join(', ')}</p>
     <p class="makerifm">制作：大括号不换行汉化组</p>
     <p class="makerifm">轻之国度：https://www.lightnovel.cn</p>
     <p class="makerifm">仅供个人学习交流使用，禁作商业用途</p>
