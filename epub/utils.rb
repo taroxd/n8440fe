@@ -74,7 +74,7 @@ def parse_chapter(tex_str, numbering)
       chapter_title_contents = before_brace($2)
       chapter_title_plain = line_to_html($1 || chapter_title_contents)
       chapter_title_contents = "#{number_str} #{chapter_title_contents}"
-      chapter_title_contents = line_to_html(chapter_title_contents, wrap: 'h1', attrib: 'class="color1"')
+      chapter_title_contents = line_to_html(chapter_title_contents, wrap: 'h1')
       title = line_to_html "#{number_str} #{chapter_title_plain}"
       html_str << <<~TEMPLATE.chomp
         <?xml version="1.0" encoding="utf-8"?>

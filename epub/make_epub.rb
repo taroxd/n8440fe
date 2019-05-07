@@ -90,14 +90,14 @@ book.ordered do
     </head>
     <body>
       <div>
-    <p class="mt15 colorc1 center font16">#{title}</p>
+    <p class="titlet1 center">#{title}</p>
     <p><br/></p>
-    <p class="font09 center">作者</p>
-    <p class="font10 color1 mtb05 center">#{author}</p>
-    <p class="font09 center">译者</p>
-    <p class="font10 color1 mtb05 center">#{translators.join(', ')}</p>
-    <p class="font09 center">校对</p>
-    <p class="font10 color1 mtb05 center">#{reviewers.join(', ')}</p>
+    <p class="titlet2 center">作者</p>
+    <p class="titlet3 center">#{author}</p>
+    <p class="titlet2 center">译者</p>
+    <p class="titlet3 center">#{translators.join(', ')}</p>
+    <p class="titlet2 center">校对</p>
+    <p class="titlet3 center">#{reviewers.join(', ')}</p>
       </div>
     </body>
     </html>
@@ -145,7 +145,7 @@ book.ordered do
     <body>
       <div>
 
-    <h1 class="color1">简介</h1>
+    <h1>简介</h1>
     #{abstract}
 
       </div>
@@ -165,7 +165,7 @@ book.ordered do
     </head>
     <body>
     <div>
-    <h1 class="mbt15 colorco">目录</h1>
+    <h1 id="toctitle">目录</h1>
 
     <table id="toctable">
       <tbody>
