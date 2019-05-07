@@ -13,8 +13,6 @@ td{padding:3px 0px}
 .logoimage{width:100%;}
 
 .colorco{color:#000000}
-.nodeco{text-decoration:none}
-.colorg{color:#000000}
 
 h1{font-size:1.5em;line-height:1.2;margin-top:1em;margin-bottom:1.2em;font-weight:bold;text-align:center !important;}
 .po{font-size:0.9em;text-indent:-0.8em;padding:0em 0.1em 0.1em 1em;color:#960014}
@@ -42,14 +40,14 @@ rt{font-size:0.7em;}
 .tdtop{vertical-align:top}
 .tdbottom{vertical-align:bottom}
 .tdmiddle{vertical-align:middle}
-.tdcenter{margin-left:auto;margin-right:auto;}
 
-.w10{width:1em}
-.w40{width:4em}
+.noteimg{width:1em}
+.toctable{margin-left:auto;margin-right:auto;page-break-inside:auto !important;}
+.tocidprefix{width:2.5em}
+.tocitem a{text-decoration:none;color:#000000}
 
 .mtb05{margin-top:-0.5em;}
 .mbt15{margin-top:1.5em;margin-bottom:1.5em;}
-.pbt09{padding-top:0.9em; padding-bottom:0.9em;}
 
 @media amzn-kf8{
 aside{display:none;}

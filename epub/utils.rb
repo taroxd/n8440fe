@@ -99,7 +99,7 @@ end
 
 def make_footnote_icon(footnote_id)
   <<~ICON.chomp
-    <a epub:type="noteref" href="##{footnote_id}" id="#{footnote_id}-ref"><img class="w10" alt="note" src="../Images/zhu.png"/></a>
+    <a epub:type="noteref" href="##{footnote_id}" id="#{footnote_id}-ref"><img class="noteimg" alt="note" src="../Images/zhu.png"/></a>
   ICON
 end
 

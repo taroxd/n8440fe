@@ -54,8 +54,8 @@ chapter_lists.each do |chap_id|
   toc_text = "#{id_prefix} #{chap_title}"
   contents_table << <<~TR.chomp
     <tr>
-      <td class="tdtop w40 pbt09"><a class="nodeco colorg" href="../#{item_href}">#{id_prefix}</a></td>
-      <td class="left pbt09"><a class="nodeco colorg" href="../#{item_href}">#{chap_title}</a></td>
+      <td class="tdtop tocidprefix tocitem"><a href="../#{item_href}">#{id_prefix}</a></td>
+      <td class="left tocitem"><a href="../#{item_href}">#{chap_title}</a></td>
     </tr>
   TR
   chapter_contents.push([item_href, content, toc_text])
@@ -164,16 +164,16 @@ book.ordered do
       <title>contents</title>
     </head>
     <body>
-      <div>
+    <div>
     <h1 class="mbt15 colorco">目录</h1>
 
-    <table class="tdcenter">
+    <table class="toctable">
       <tbody>
          #{contents_table}
        </tbody>
      </table>
 
-       </div>
+      </div>
      </body>
      </html>
   CONTENTS
