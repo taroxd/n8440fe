@@ -167,7 +167,7 @@ book.ordered do
     <div>
     <h1 class="mbt15 colorco">目录</h1>
 
-    <table class="toctable">
+    <table id="toctable">
       <tbody>
          #{contents_table}
        </tbody>

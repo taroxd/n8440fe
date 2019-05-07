@@ -42,7 +42,7 @@ rt{font-size:0.7em;}
 .tdmiddle{vertical-align:middle}
 
 .noteimg{width:1em}
-.toctable{margin-left:auto;margin-right:auto;page-break-inside:auto !important;}
+#toctable{margin-left:auto;margin-right:auto;page-break-inside:auto;}
 .tocidprefix{width:2.5em}
 .tocitem a{text-decoration:none;color:#000000}
 
