@@ -40,7 +40,7 @@ maintex = File.read '../n8440fe.tex', encoding: 'utf-8'
 abstract_match = /\\begin{abstract}(.+)\\end{abstract}/m.match(maintex)
 abstract = tex_to_html abstract_match[1]
 
-max_chapter = /for i=1,(\d+),1/.match(maintex)[1].to_i
+max_chapter = maintex.scan(/\\addchaps\{\d+\}\{(\d+)\}/).map { |(chap_id)| chap_id.to_i }.max
 chapter_lists = (1..max_chapter).map { |c| sprintf('%04d', c) }
 
 chapter_contents = []
