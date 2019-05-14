@@ -8,6 +8,10 @@
 # URL shortcut
 *.url
 
+# Microsoft Word
+*.doc
+*.docx
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
