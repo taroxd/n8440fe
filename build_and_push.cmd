@@ -1,17 +1,13 @@
 @pushd %~dp0
 git checkout gh-pages
 git reset HEAD~
+@call .\cleanup.cmd
 git rebase master
 @call .\build.cmd
 git add .
 git commit -m "update"
 git push -f
-
-@REM cleaning
-latexmk -C
-del n8440fe.ltjruby
-del n8440fe_recent.*
-
+@call .\cleanup.cmd
 git checkout master
 
 @popd
