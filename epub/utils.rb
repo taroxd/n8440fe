@@ -14,8 +14,8 @@ def line_to_html(line, wrap: nil, attrib: nil)
   if line.include?('\\vspace')
     return "#{start_tag}<br/>#{end_tag}"
   end
-  if line.include?('\\atogakiline')
-    return "<hr class=\"atogakiline\"/>"
+  if line.include?('\\psline')
+    return "<hr class=\"psline\"/>"
   end
   line.gsub!(/\\jpfont\s+/, '')
 

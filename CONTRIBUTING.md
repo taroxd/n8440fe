@@ -142,5 +142,5 @@ ffff。
 \footnote{脚注内容}     % 在对应位置添加脚注
 \ruby{A}{B}             % 注音，即写作 A 读作 B
 \ruby{椎名|真昼}{{\jpfont しいな}|{\jpfont まひる}}  % 高级一点的注音
-\atogakiline            % 后记用分割线
+\psline            % 后记用分割线
 ```
