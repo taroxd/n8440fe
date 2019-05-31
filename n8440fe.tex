@@ -1,70 +1,7 @@
 % !TeX program = LuaLaTeX
 % !TeX encoding = UTF-8
 
-\documentclass{article}
-
-\usepackage{luatexja}
-\usepackage{luatexja-ruby}
-\usepackage[no-math]{luatexja-fontspec}
-% \usepackage[ZhongYi]{luatexja-zhfonts}
-\usepackage[a5paper]{geometry}
-\usepackage{float}
-\usepackage{titlesec}
-\usepackage{setspace}
-% \usepackage{newunicodechar}
-\usepackage[yyyymmdd]{datetime}
-\usepackage{indentfirst}
-% \usepackage{tipa}  % for \textsubdot
-\usepackage[perpage]{footmisc}
-\usepackage[unicode,hidelinks]{hyperref}
-\usepackage[numbered]{bookmark}
-\usepackage{luacode}
-
-% 思源黑体
-\newjfontfamily{\jpfont}[
-  BoldFont=SourceHanSansJP-Bold,
-  YokoFeatures={JFM=prop}
-]{SourceHanSansJP-Normal}
-% 方正兰亭黑系列
-\setmainjfont[
-  BoldFont=FZLTZHK--GBK1-0,
-  YokoFeatures={JFM=prop}
-]{FZLTXIHK--GBK1-0}
-\renewcommand{\familydefault}{\sfdefault}
-
-\ltjsetparameter{prebreakpenalty={`—, 10000}}
-
-\onehalfspacing
-\titlespacing*{\subsection}{0pt}{8.9ex}{3.4ex}
-\newcommand\subsectionbreak{\ifnum\value{subsection}>1\clearpage\fi}
-
-\def\two@digits#1{\ifnum#1<10 0\fi\number#1}
-\renewcommand{\thesubsection}{\two@digits{\value{subsection}}}
-\renewcommand{\contentsname}{目录}
-\renewcommand{\abstractname}{简介}
-\renewcommand{\dateseparator}{.}
-
-\counterwithout{subsection}{section}
-\newcommand*\sectotoc[1]{
-  \section*{#1}
-  \addcontentsline{toc}{section}{#1}
-}
-\newcommand*\addchaps[2]{
-  \luaexec{
-    for i=#1,#2,1 do
-      tex.sprint(string.format("\\setcounter{subsection}{\%d}", i-1))
-      tex.sprint(string.format("\\input{\%04d}", i))
-    end
-  }
-}
-\newcommand*\psline{
-  \par
-  \kern20pt
-  \hrule
-  \kern1pt
-  \hrule
-  \kern10pt
-}
+\input{template}
 
 \title{关于邻家的天使大人不知不觉把我惯成了废人这档子事}
 \author{
