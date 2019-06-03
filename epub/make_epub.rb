@@ -8,7 +8,7 @@ author = '佐伯さん'
 translators = ['taroxd', 'tongyuantongyu', '浪人',
   'kae', '冰川镜华', '纱优纱优', '安诺尔',
   'Konri', '葳蕤百媚生', 'Muzz']
-reviewers = ['taroxd']
+reviewers = ['taroxd', '追影', '墨镜', 'Muzz']
 
 Dir.chdir __dir__
 
