@@ -29,12 +29,12 @@ File.open 'style.css', mode: 'rb', encoding: 'utf-8' do |f|
   book.add_item('Styles/style.css', content: f)
 end
 
-File.open 'zhu.png', mode: 'rb' do |f|
-  book.add_item('Images/zhu.png', content: f)
-end
-
 File.open 'cover.jpg', mode: 'rb' do |f|
   book.add_item('Images/cover.jpg', content: f).cover_image
+end
+
+File.open 'zhu.png', mode: 'rb' do |f|
+  book.add_item('Images/zhu.png', content: f)
 end
 
 maintex = File.read '../n8440fe.tex', encoding: 'utf-8'
@@ -80,7 +80,7 @@ book.ordered do
     </html>
   COVER
 
-  book.add_item('Text/title.xhtml').add_content(StringIO.new(<<~TITLE.chomp)).toc_text(title)
+  book.add_item('Text/title.xhtml').add_content(StringIO.new(<<~TITLE.chomp))
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
@@ -155,7 +155,7 @@ book.ordered do
     </html>
   INTRODUCTION
 
-  book.add_item('Text/contents.xhtml').add_content(StringIO.new(<<~CONTENTS.chomp))
+  book.add_item('Text/contents.xhtml').add_content(StringIO.new(<<~CONTENTS.chomp)).toc_text('目录')
     <?xml version="1.0" encoding="utf-8"?>
     <!DOCTYPE html>
 
@@ -163,7 +163,7 @@ book.ordered do
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
 
-      <title>contents</title>
+      <title>目录</title>
     </head>
     <body>
     <div>
