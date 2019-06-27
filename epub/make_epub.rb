@@ -185,4 +185,5 @@ book.ordered do
   end
 end
 
+book.generate_nav_doc '目录'
 book.generate_epub '../n8440fe.epub'
