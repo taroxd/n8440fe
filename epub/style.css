@@ -10,8 +10,6 @@ h1{font-size:1.4em;line-height:1.2;margin-top:1em;margin-bottom:1.2em;font-weigh
 .makerifm{text-indent:0em;line-height:1.2;margin-top:0.2em;margin-bottom:0.2em}
 .psline{margin-top:1em;margin-bottom:0.7em}
 
-.po{font-size:0.9em;text-indent:-0.8em;padding:0em 0.1em 0.1em 1em;color:#960014}
-
 .bold{font-weight:bold}
 
 .in0{text-indent:0}
@@ -29,15 +27,11 @@ h1{font-size:1.4em;line-height:1.2;margin-top:1em;margin-bottom:1.2em;font-weigh
 .titlet2{font-size:0.9em}
 .titlet3{color:#000000;font-size:1.0em;margin-top:-0.5em}
 
-.noteimg{width:1em}
+.notetag{font-size:0.8em;vertical-align:super;font-weight:bold;color:#960014;text-decoration:none}
+.po{font-size:0.9em;text-indent:-0.8em;padding:0em 0.1em 0.1em 1em;color:#960014}
 
 #toctitle{color:#000000;margin-top:1.5em;margin-bottom:1.5em}
 #toctable{margin-left:auto;margin-right:auto;page-break-inside:auto}
 .tocidprefix{width:2.5em}
 .tocitem{padding:3px 0px}
 .tocitem a{text-decoration:none;color:#000000}
-
-@media amzn-kf8{
-aside{display:none}
-.po{page-break-after:always}
-}

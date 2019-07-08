@@ -102,13 +102,13 @@ end
 
 def make_footnote_icon(footnote_id)
   <<~ICON.chomp
-    <a epub:type="noteref" href="##{footnote_id}" id="#{footnote_id}-ref"><img class="noteimg" alt="note" src="../Images/zhu.png"/></a>
+    <a epub:type="noteref" href="##{footnote_id}" class="notetag">注</a>
   ICON
 end
 
 def make_footnote(content, footnote_id)
   <<~FOOTNOTE.chomp
-    <aside epub:type="footnote" id="#{footnote_id}"><a href="##{footnote_id}-ref"></a>
+    <aside epub:type="footnote" id="#{footnote_id}">
       <p class="po">#{content}</p>
     </aside>
   FOOTNOTE

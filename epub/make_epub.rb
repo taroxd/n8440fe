@@ -33,10 +33,6 @@ File.open 'cover.jpg', mode: 'rb' do |f|
   book.add_item('Images/cover.jpg', content: f).cover_image
 end
 
-File.open 'zhu.png', mode: 'rb' do |f|
-  book.add_item('Images/zhu.png', content: f)
-end
-
 maintex = File.read '../n8440fe.tex', encoding: 'utf-8'
 
 abstract_match = /\\begin{abstract}(.+)\\end{abstract}/m.match(maintex)
