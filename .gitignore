@@ -5,8 +5,9 @@
 /n8440fe_recent.pdf
 
 ## Misc
-# URL shortcut
+# Shortcuts
 *.url
+*.lnk
 
 # Microsoft Word
 *.doc
