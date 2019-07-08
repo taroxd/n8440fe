@@ -5,9 +5,10 @@ h1{font-size:1.4em;line-height:1.2;margin-top:1em;margin-bottom:1.2em;font-weigh
 
 .cover{margin:0;padding:0;text-indent:0;text-align:center !important}
 
-.makertitle{font-size:1.3em;text-indent:0;font-weight:bold;margin-top:0.5em;margin-bottom:0.5em}
-.cutline{text-indent:0em;line-height:0;margin-top:0.3em;margin-bottom:0.3em}
-.makerifm{text-indent:0em;line-height:1.2;margin-top:0.2em;margin-bottom:0.2em}
+.makertitle{font-size:1.3em;text-align: center !important;text-indent:0;font-weight:bold;margin-top:1em;margin-bottom:0.8em}
+.infobox p{text-indent:0;line-height:1.1;margin:0;padding-left:3%;padding-right:3%;}
+.infobox p.top{border-top:1px solid #333;padding-top:0.2em}
+.infobox p.bottom{border-bottom:1px solid #333;padding-bottom:0.2em}
 .psline{margin-top:1em;margin-bottom:0.7em}
 
 .bold{font-weight:bold}
@@ -28,7 +29,7 @@ h1{font-size:1.4em;line-height:1.2;margin-top:1em;margin-bottom:1.2em;font-weigh
 .titlet3{color:#000000;font-size:1.0em;margin-top:-0.5em}
 
 .notetag{font-size:0.8em;vertical-align:super;font-weight:bold;color:#960014;text-decoration:none}
-.po{font-size:0.9em;text-indent:-0.8em;padding:0em 0.1em 0.1em 1em;color:#960014}
+.po{font-size:0.9em;color:#960014}
 
 #toctitle{color:#000000;margin-top:1.5em;margin-bottom:1.5em}
 #toctable{margin-left:auto;margin-right:auto;page-break-inside:auto}

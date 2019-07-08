@@ -67,7 +67,6 @@ book.ordered do
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
-
       <title>封面</title>
     </head>
     <body>
@@ -83,7 +82,6 @@ book.ordered do
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
-
       <title>#{title}</title>
     </head>
     <body>
@@ -108,24 +106,22 @@ book.ordered do
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
-
       <title>制作信息</title>
     </head>
     <body>
-      <div>
-
+    <div>
     <p class="makertitle">制作信息</p>
-    <p class="cutline">≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡</p>
-    <p class="makerifm">作者：#{author}</p>
-    <p class="makerifm">译者：#{translators.join(', ')}</p>
-    <p class="makerifm">校对：#{reviewers.join(', ')}</p>
-    <p class="makerifm">制作：大括号不换行汉化组</p>
-    <p class="makerifm">轻之国度：https://www.lightnovel.cn</p>
-    <p class="makerifm">仅供个人学习交流使用，禁作商业用途</p>
-    <p class="makerifm">下载后请在24小时内删除，LK不负担任何责任</p>
-    <p class="makerifm">请尊重翻译、扫图、录入、校对的辛勤劳动，转载请保留信息</p>
-    <p class="cutline">≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡≡</p>
-      </div>
+    <div class="infobox">
+      <p class="top">作者：#{author}</p>
+      <p>译者：#{translators.join(', ')}</p>
+      <p>校对：#{reviewers.join(', ')}</p>
+      <p>制作：大括号不换行汉化组</p>
+      <p>轻之国度：https://www.lightnovel.cn</p>
+      <p>仅供个人学习交流使用，禁作商业用途</p>
+      <p>下载后请在24小时内删除，LK不负担任何责任</p>
+      <p class="bottom">请尊重翻译、扫图、录入、校对的辛勤劳动，转载请保留信息</p>
+    </div>
+    </div>
     </body>
     </html>
   MESSAGE
@@ -137,16 +133,13 @@ book.ordered do
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
-
       <title>简介</title>
     </head>
     <body>
-      <div>
-
+    <div>
     <h1>简介</h1>
     #{abstract}
-
-      </div>
+    </div>
     </body>
     </html>
   INTRODUCTION
@@ -158,7 +151,6 @@ book.ordered do
     <html xmlns="http://www.w3.org/1999/xhtml" xmlns:epub="http://www.idpf.org/2007/ops">
     <head>
       <link href="../Styles/style.css" rel="stylesheet" type="text/css"/>
-
       <title>目录</title>
     </head>
     <body>
@@ -167,13 +159,13 @@ book.ordered do
 
     <table id="toctable">
       <tbody>
-         #{contents_table}
-       </tbody>
-     </table>
+        #{contents_table}
+      </tbody>
+    </table>
 
-      </div>
-     </body>
-     </html>
+    </div>
+    </body>
+    </html>
   CONTENTS
 
   chapter_contents.each do |item_href, content, chap_title|
