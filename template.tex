@@ -6,6 +6,7 @@
 \usepackage[a5paper]{geometry}
 \usepackage{float}
 \usepackage{titlesec}
+\usepackage{tocloft}
 \usepackage{setspace}
 \usepackage[yyyymmdd]{datetime}
 \usepackage{indentfirst}
@@ -38,6 +39,10 @@
 \titlespacing*{\subsection}{0pt}{8.9ex}{3.4ex}
 \newcommand\subsectionbreak{\ifnum\value{subsection}>1\clearpage\fi}
 \setlength\parindent{2\zw}
+\renewcommand\cftpartnumwidth{3em}
+
+\tolerance=500
+\setlength{\emergencystretch}{1.5em}
 
 \def\two@digits#1{\ifnum#1<10 0\fi\number#1}
 \renewcommand{\thesubsection}{\two@digits{\value{subsection}}}
