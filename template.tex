@@ -11,6 +11,7 @@
 \usepackage[yyyymmdd]{datetime}
 \usepackage{indentfirst}
 % \usepackage{tipa}  % for \textsubdot
+\usepackage{enumitem}
 \usepackage[perpage]{footmisc}
 \usepackage[unicode,hidelinks]{hyperref}
 \usepackage[numbered]{bookmark}
@@ -42,6 +43,7 @@
 \newcommand{\subsectionbreak}{\ifnum\value{subsection}>1\clearpage\fi}
 \setlength{\parindent}{2\zw}
 \renewcommand{\cftpartnumwidth}{3em}
+\setlist{noitemsep,wide,topsep=\baselineskip}
 
 \tolerance=500
 \setlength{\emergencystretch}{1.5em}
