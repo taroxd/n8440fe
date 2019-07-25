@@ -18,17 +18,21 @@
 \usepackage{luacode}
 
 % 思源黑体
-\newjfontfamily{\jpfont}[
-  BoldFont=SourceHanSansJP-Medium,
+\defaultjfontfeatures{
   YokoFeatures={JFM=prop}
-]{SourceHanSansJP-Normal}
-\setmainjfont[
-  BoldFont=SourceHanSansCN-Medium,
-  YokoFeatures={JFM=prop}
-]{SourceHanSansCN-Normal}
-\setsansfont[
-  BoldFont=SourceHanSansCN-Medium,
-]{SourceHanSansCN-Normal}
+}
+\newjfontfamily{\jpfont}{SourceHanSansJP}[
+  UprightFont=*-Normal,
+  BoldFont=*-Medium
+]
+\setmainjfont{SourceHanSansCN}[
+  UprightFont=*-Normal,
+  BoldFont=*-Medium
+]
+\setsansfont{SourceHanSansCN}[
+  UprightFont=*-Normal,
+  BoldFont=*-Medium
+]
 \renewcommand{\familydefault}{\sfdefault}
 
 \ltjsetparameter{jcharwidowpenalty=0}
