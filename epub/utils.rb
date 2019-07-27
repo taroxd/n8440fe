@@ -42,7 +42,6 @@ def line_to_html(line, wrap: nil, attrib: nil)
     rb, pos = before_brace_with_index $1
     rt, pos = before_brace_with_index $1, pos + 2
     rest = line_to_html $1[(pos + 1)..]
-    gsub_result = ""
     [rb, rt].each { |r| r.delete!('{}') }
     rb.split('|').zip(rt.split('|')).map { |rb_part, rt_part|
       "<ruby>#{rb_part}<rt>#{rt_part}</rt></ruby>"
