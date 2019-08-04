@@ -4,6 +4,7 @@
 \usepackage{luatexja-ruby}
 \usepackage[no-math]{luatexja-fontspec}
 \usepackage[a5paper]{geometry}
+\usepackage{luacode}
 \usepackage{float}
 \usepackage{titlesec}
 \usepackage{tocloft}
@@ -15,7 +16,6 @@
 \usepackage[perpage]{footmisc}
 \usepackage[unicode,hidelinks]{hyperref}
 \usepackage[numbered]{bookmark}
-\usepackage{luacode}
 
 % 思源黑体
 \defaultjfontfeatures{
@@ -45,6 +45,7 @@
 \onehalfspacing
 \titlespacing*{\subsection}{0pt}{8.9ex}{3.4ex}
 \newcommand{\subsectionbreak}{\ifnum\value{subsection}>1\clearpage\fi}
+\newcommand{\sectionbreak}{\clearpage}
 \setlength{\parindent}{2\zw}
 \renewcommand{\cftpartnumwidth}{3em}
 \setlist{noitemsep,topsep=\baselineskip,left=\zw .. \parindent}
@@ -61,6 +62,7 @@
 
 \newcommand*{\sectotoc}[1]{
   \section*{#1}
+  \phantomsection
   \addcontentsline{toc}{section}{#1}
 }
 \newcommand*{\addchaps}[2]{
