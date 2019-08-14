@@ -23,11 +23,13 @@
 }
 \newjfontfamily{\jpfont}{SourceHanSansJP}[
   UprightFont=*-Normal,
-  BoldFont=*-Medium
+  BoldFont=*-Medium,
+  Language=Japanese
 ]
 \setmainjfont{SourceHanSansCN}[
   UprightFont=*-Normal,
-  BoldFont=*-Medium
+  BoldFont=*-Medium,
+  Language=Chinese Simplified
 ]
 \setsansfont{SourceHanSansCN}[
   UprightFont=*-Normal,
@@ -37,6 +39,7 @@
 
 \ltjsetparameter{jcharwidowpenalty=0}
 \ltjsetparameter{prebreakpenalty={`—,10000}}
+\ltjsetparameter{prebreakpenalty={`⸺,10000}}
 \ltjsetparameter{prebreakpenalty={`…,10000}}
 \ltjsetparameter{prebreakpenalty={`～,10000}}
 \ltjsetparameter{jaxspmode={`，,inhibit}}
