@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 def line_to_html(line, wrap: nil, attrib: nil)
   line = line.sub(/(?<!\\)%.*/, '')
