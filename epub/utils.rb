@@ -25,12 +25,14 @@ def line_to_html(line, wrap: nil, attrib: nil)
 
   # \footnote{1}
   footnotes = []
-  line.gsub!(/\\footnote\{(.+)\}/) do
-    footnote_content = line_to_html before_brace($1)
+  line.sub!(/\\footnote\{(.+)/) do
+    in_brace, pos = before_brace_with_index $1
+    rest = line_to_html $1[(pos + 1)..]
+    footnote_content = line_to_html in_brace
     footnote_id = generate_footnote_id
     icon = make_footnote_icon footnote_id
     footnotes.push [footnote_content, footnote_id]
-    icon
+    icon + rest
   end
 
   if /\\item\s+(.+)/ =~ line
