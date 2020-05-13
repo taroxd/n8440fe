@@ -14,7 +14,7 @@ reviewers = ['taroxd', '追影', '墨镜', 'Muzz']
 Dir.chdir __dir__
 
 book = GEPUB::Book.new
-book.primary_identifier('https://www.lightnovel.cn/thread-960506-1-1.html')
+book.primary_identifier('urn:uuid:9acb4e89-0c1b-44ac-b789-e5a1159019d9')
 book.language = 'zh'
 
 book.add_title title,
