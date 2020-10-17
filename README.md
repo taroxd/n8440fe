@@ -14,6 +14,6 @@ Contributing: See [CONTRIBUTING.md](https://github.com/taroxd/n8440fe/blob/maste
 
 ### License
 
-The copyright of all the texts belong to the original author 佐伯さん.
+The copyright of all the texts belongs to the original author 佐伯さん.
 
 The LaTeX template and the code used to generate epub files are distributed under [CC0](https://creativecommons.org/share-your-work/public-domain/cc0/) License.
