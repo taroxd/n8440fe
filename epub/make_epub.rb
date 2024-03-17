@@ -7,7 +7,7 @@ require_relative 'utils'
 title = '关于邻家的天使大人不知不觉把我惯成了废人这档子事'
 author = '佐伯さん'
 translators = ['taroxd', 'tongyuantongyu', '浪人',
-  'kae', '冰川镜华', '纱优纱优', '安诺尔',
+  'kae', '冰川镜华', '纱优纱优', '千尋', '安诺尔',
   'Konri', '葳蕤百媚生', 'Muzz', 'youfu', '追影', '三上悠米']
 reviewers = ['taroxd', '追影', '墨镜', 'Muzz']
 
