@@ -4,6 +4,8 @@
 /n8440fe_recent.tex
 /n8440fe_recent.pdf
 
+*.txt
+
 ## Misc
 # Shortcuts
 *.url
